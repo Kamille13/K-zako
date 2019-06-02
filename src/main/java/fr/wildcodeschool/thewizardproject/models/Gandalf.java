@@ -1,20 +1,19 @@
 package fr.wildcodeschool.thewizardproject.models;
 
-import org.springframework.stereotype.Component;
-
-@Component("Gandalf")
 public class Gandalf implements Wizard {
-
+    private ChangeDressColor myChangeDressColor;
 
     @Override
     public String giveAdvice(){
-        return "Salut les mecs!";
+        return "I'm the best !";
+    }
+    public void setChangeDressColor(ChangeDressColor theChangeDress) {
+        myChangeDressColor = theChangeDress;
     }
 
-    @Override
-    public String changeDress() {
-        // TODO Auto-generated method stub
-        return null;
+    public String sayChangeDressColor() {
+        return myChangeDressColor.changeDress();
     }
+
 }
 

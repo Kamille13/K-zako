@@ -1,20 +1,19 @@
 package fr.wildcodeschool.thewizardproject.controllers;
+import fr.wildcodeschool.thewizardproject.models.ChangeDressColor;
+import fr.wildcodeschool.thewizardproject.models.Gandalf;
 import fr.wildcodeschool.thewizardproject.models.Wizard;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
 
     public void start() {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
 
-        Wizard myWizard = context.getBean("Dumbeldore", Wizard.class);
-
-        context.close();
-
+        Wizard myWizard = new Gandalf();
         System.out.println("");
         System.out.println("******************");
         System.out.println(myWizard.giveAdvice());
         System.out.println("******************");
-        System.out.println(myWizard.changeDress());
+        ChangeDressColor myChangeDress = new ChangeDressColor();
+        ((Gandalf) myWizard).setChangeDressColor(myChangeDress);
+        System.out.println(((Gandalf) myWizard).sayChangeDressColor());
     }
 }
